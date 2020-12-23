@@ -1,0 +1,13 @@
+[Unit]
+Description=The Apache nginx Server
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=forking
+PIDFile=/usr/local/nginx/logs/nginx.pid
+ExecStart=/usr/local/nginx/sbin/nginx
+ExecReload=/usr/local/nginx/sbin/nginx -s reload
+ExecStop=/usr/local/nginx/sbbin/nginx  -s stop
+
+[Install]
+WantedBy=multi-user.target
